@@ -68,6 +68,12 @@
             "type": "agent",
             "prompt": "Analizza `git diff HEAD --stat` e `git diff HEAD` per capire cosa è cambiato in questa sessione. Aggiorna CHIRURGICAMENTE solo le sezioni di ARCHITECT.md e README.md che riflettono questi cambiamenti. Non riscrivere l'intero file. Se nulla di strutturale è cambiato (solo bug fix o test), non toccare ARCHITECT.md. Aggiorna sempre la sezione 'Ultimo aggiornamento' con la data odierna.",
             "timeout": 60
+          },
+          {
+            "type": "agent",
+            "prompt": "Aggiorna il file `.claudememory` nella root del progetto con lo stato della sessione corrente: aggiungi in '## Decisioni Tecniche Recenti' le scelte architetturali o tecniche prese oggi (con data YYYY-MM-DD), marca [x] i TODO risolti, aggiungi nuovi TODO identificati, aggiorna '## Feature in Sviluppo' con il branch e stato corrente. Non cancellare la storia: aggiungi in cima alle sezioni. Mantieni il file sotto 100 righe: archivia le decisioni più vecchie di 30 giorni in un blocco '## Archivio' in fondo. Se il file non esiste, crealo con la struttura standard.",
+            "timeout": 30,
+            "statusMessage": "Aggiornamento project memory..."
           }
         ]
       }
