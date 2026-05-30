@@ -1,27 +1,27 @@
 ---
 name: commit
-description: Genera un commit message semantico dal diff e chiede conferma prima di eseguire.
-             Usa quando l'utente vuole committare, preparare un commit, o vedere le modifiche staged.
+description: Generates a semantic commit message from the diff and asks for confirmation before executing.
+             Use when the user wants to commit, prepare a commit, or review staged changes.
 disable-model-invocation: true
 allowed-tools: Bash
 ---
 
-Analizza l'output di `git diff --staged` (o `git diff HEAD` se nulla è in staging).
+Analyze the output of `git diff --staged` (or `git diff HEAD` if nothing is staged).
 
-1. Identifica i cambiamenti logici raggruppandoli per tipo:
-   - Nuove funzionalità (feat)
-   - Bug fix (fix)
+1. Identify logical changes grouped by type:
+   - New features (feat)
+   - Bug fixes (fix)
    - Refactoring (refactor)
-   - Test (test)
-   - Documentazione (docs)
+   - Tests (test)
+   - Documentation (docs)
 
-2. Genera un commit message in formato Conventional Commits:
+2. Generate a commit message in Conventional Commits format:
    `<type>(<scope>): <description>`
-   Se i cambiamenti sono eterogenei, proponi commit multipli atomici.
+   If changes are heterogeneous, propose multiple atomic commits.
 
-3. Mostra il messaggio proposto e il diff rilevante, poi chiedi:
-   "Vuoi procedere con questo commit? [s/N] — oppure modifica il messaggio:"
+3. Show the proposed message and relevant diff, then ask:
+   "Do you want to proceed with this commit? [y/N] — or modify the message:"
 
-4. Esegui `git commit` SOLO dopo conferma esplicita.
+4. Run `git commit` ONLY after explicit confirmation.
 
-Non eseguire mai `git push` in autonomia.
+Never run `git push` autonomously.

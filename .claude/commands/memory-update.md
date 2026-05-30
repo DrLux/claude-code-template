@@ -1,15 +1,15 @@
 ---
 name: memory-update
-description: Aggiorna .claudememory con le decisioni e i task completati nella sessione
+description: Updates .claudememory with decisions and tasks completed in the session
 ---
 
-Analizza la sessione corrente e aggiorna `.claudememory`:
+Analyze the current session and update `.claudememory`:
 
-1. Aggiungi in "Decisioni Tecniche Recenti" le scelte prese oggi (con data).
-2. Marca come completati [x] i TODO risolti.
-3. Aggiungi nuovi TODO identificati durante il lavoro.
-4. Aggiorna "Feature in Sviluppo" con lo stato corrente.
+1. Add to "Recent Technical Decisions" the choices made today (with date).
+2. Mark resolved TODOs as completed [x].
+3. Add new TODOs identified during work.
+4. Update "Features in Development" with the current status.
 
-Non cancellare la storia: aggiungi in cima alle sezioni.
-Mantieni il file sotto 100 righe: archivia le decisioni > 30 giorni in un blocco
-`## Archivio` in fondo.
+Do not delete history: add at the top of sections.
+Keep the file under 100 lines: archive decisions > 30 days in an
+`## Archive` block at the bottom.

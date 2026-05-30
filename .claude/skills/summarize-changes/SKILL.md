@@ -1,13 +1,12 @@
 ---
-description: Riassume le modifiche non committate e segnala rischi. Usa quando si chiede
-             cosa è cambiato, si vuole un commit message, o si chiede di rivedere il diff.
+description: Summarizes uncommitted changes and flags risks. Use when asked what changed, when preparing a commit message, or when reviewing the diff.
 ---
 
-## Modifiche correnti
+## Current Changes
 
 !`git diff HEAD`
 
-## Istruzioni
+## Instructions
 
-Riassumi le modifiche in 2-3 punti, poi elenca i rischi:
-error handling mancante, valori hardcoded, test da aggiornare.
+Summarize the changes in 2-3 points, then list the risks:
+missing error handling, hardcoded values, tests to update.

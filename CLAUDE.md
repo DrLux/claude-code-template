@@ -1,19 +1,19 @@
-# Project: [NOME PROGETTO]
+# Project: [PROJECT NAME]
 
 ## Workflow
-- Non modificare `src/core/config.py` senza leggere prima ARCHITECT.md.
+- Do not modify `src/core/config.py` without reading ARCHITECT.md first.
 
 ## Entry Points
 - `src/main.py` — bootstrap
-- `Makefile` — comandi di sviluppo
-- `pyproject.toml` — dipendenze e config tool
+- `Makefile` — development commands
+- `pyproject.toml` — dependencies and tool config
 
-## Riferimento Architetturale
-Per la mappa completa: `ARCHITECT.md`
+## Architectural Reference
+For the full map: `ARCHITECT.md`
 
 ## Gotchas
-<!-- Sezione popolata automaticamente da Claude quando commette errori -->
-<!-- Non modificare manualmente: Claude la aggiorna con la regola di auto-apprendimento -->
+<!-- Auto-populated by Claude when it makes mistakes -->
+<!-- Do not edit manually: Claude updates this with the auto-learning rule -->
 
-## Risorse
+## Resources
 See @README.md for project overview.

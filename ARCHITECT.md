@@ -1,6 +1,6 @@
-# Architecture — [NOME PROGETTO]
+# Architecture — [PROJECT NAME]
 
-> Questo file è generato e aggiornato automaticamente dal comando `/architect`.
-> Non modificare manualmente: esegui `/architect` per rigenerare.
+> This file is generated and updated automatically by the `/architect` command.
+> Do not edit manually: run `/architect` to regenerate.
 
-*Ultimo aggiornamento: 30/05/2026*
+*Last updated: 30/05/2026*

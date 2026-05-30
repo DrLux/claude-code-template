@@ -1,6 +1,6 @@
 #!/bin/bash
 # .claude/hooks/post-batch-check.sh
-# Dopo un batch di scritture, verifica la coerenza degli import.
+# After a write batch, verifies import consistency.
 
 cd "$CLAUDE_PROJECT_DIR"
 
@@ -13,7 +13,7 @@ fi
 MYPY_OUT=$(uv run mypy src/ --ignore-missing-imports --no-error-summary 2>&1 | grep "error:" | head -20)
 
 if [ -n "$MYPY_OUT" ]; then
-  jq -n --arg ctx "Errori mypy cross-file dopo il batch:\n$MYPY_OUT" \
+  jq -n --arg ctx "Cross-file mypy errors after batch:\n$MYPY_OUT" \
     '{
       hookSpecificOutput: {
         hookEventName: "PostToolBatch",

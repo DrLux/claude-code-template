@@ -1,16 +1,16 @@
 ---
 name: docstrings
-description: Aggiunge docstring Google-style a funzioni e classi pubbliche del file
+description: Adds Google-style docstrings to public functions and classes in the file
 ---
 
-Aggiungi docstring in formato Google Style a tutte le funzioni, metodi e classi
-pubbliche (non inizianti con `_`) nel file corrente o specificato.
+Add docstrings in Google Style format to all public functions, methods and classes
+(not starting with `_`) in the current or specified file.
 
-- Prima riga: descrizione concisa (non ripetere il nome della funzione).
-- `Args:` con tipo e descrizione (ometti `self`/`cls`).
-- `Returns:` tipo e descrizione del valore di ritorno.
-- `Raises:` eccezioni che possono essere sollevate.
-- `Example:` opzionale, solo per funzioni non ovvie.
+- First line: concise description (do not repeat the function name).
+- `Args:` with type and description (omit `self`/`cls`).
+- `Returns:` type and description of the return value.
+- `Raises:` exceptions that may be raised.
+- `Example:` optional, only for non-obvious functions.
 
-Non modificare la logica. Non documentare metodi privati, dunder methods
-o proprietà ovvie.
+Do not modify the logic. Do not document private methods, dunder methods
+or obvious properties.

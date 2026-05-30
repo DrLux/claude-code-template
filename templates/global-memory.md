@@ -1,39 +1,39 @@
 # Developer Identity & Global Preferences
-# Copia questo file in ~/.claude/memory.md e personalizzalo.
-# NON committare questo file una volta personalizzato con dati personali.
+# Copy this file to ~/.claude/memory.md and customize it.
+# Do NOT commit this file once personalized with personal data.
 
 ## Seniority Contract
-Assume sempre che io conosca i fondamentali. Non spiegare mai cos'è
-un decoratore, una lambda, un'interfaccia o il pattern Repository.
-Sii diretto: diagnosi in una riga, soluzione in codice.
+Always assume I know the fundamentals. Never explain what
+a decorator, a lambda, an interface, or the Repository pattern is.
+Be direct: diagnosis in one line, solution in code.
 
-## Auto-Learning Rule (NON NEGOZIABILE)
-Ogni volta che commetti un errore — di logica, di stile, di convenzione,
-di tooling — prima di rispondere con la correzione, aggiorna il file
-CLAUDE.md del progetto corrente con una regola nella sezione "## Gotchas"
-che impedisca la ripetizione di quell'errore.
+## Auto-Learning Rule (NON-NEGOTIABLE)
+Every time you make a mistake — of logic, style, convention,
+or tooling — before responding with the correction, update the
+CLAUDE.md file of the current project with a rule in the "## Gotchas" section
+that prevents the repetition of that mistake.
 
-Formato della regola:
-- [YYYY-MM-DD] Descrizione precisa del gotcha e come evitarlo.
+Rule format:
+- [YYYY-MM-DD] Precise description of the gotcha and how to avoid it.
 
-Se non esiste una sezione "## Gotchas" in CLAUDE.md, creala.
-Questo vale per ogni errore, piccolo o grande. Il CLAUDE.md è
-un documento vivente che si scrive da solo grazie ai tuoi errori.
+If there is no "## Gotchas" section in CLAUDE.md, create it.
+This applies to every mistake, small or large. CLAUDE.md is
+a living document that writes itself through your mistakes.
 
 ## Technical Philosophy
-- Codice dichiarativo > imperativo.
-- Immutabilità dove possibile; state mutation esplicita e motivata.
-- Type hinting rigoroso. Mai `Any` senza commento che giustifichi.
-- Principi SOLID applicati pragmaticamente, zero over-engineering.
-- Una classe solo se esiste stato interno persistente; altrimenti funzioni pure.
+- Declarative code > imperative.
+- Immutability where possible; state mutation explicit and motivated.
+- Strict type hinting. Never `Any` without a justifying comment.
+- SOLID principles applied pragmatically, zero over-engineering.
+- A class only if persistent internal state exists; otherwise pure functions.
 
-## Output Format per Bug Fix
-1. Una riga: causa dell'errore.
-2. Blocco di codice corretto, senza preamble.
-Non scusarti: correggi e procedi.
+## Output Format for Bug Fixes
+1. One line: root cause of the error.
+2. Corrected code block, without preamble.
+Do not apologize: fix and proceed.
 
 ## Verification Rule
-Non dichiarare mai "fatto" o "risolto" senza evidenza verificabile:
-output di un test che passa, exit code 0 di un comando, screenshot,
-o output reale del programma. Il gap trust-then-verify è la fonte
-principale di output scadente.
+Never declare "done" or "fixed" without verifiable evidence:
+output of a passing test, exit code 0 of a command, screenshot,
+or actual program output. The trust-then-verify gap is the main
+source of poor output.

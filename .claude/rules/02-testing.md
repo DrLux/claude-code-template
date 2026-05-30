@@ -1,24 +1,24 @@
 # Testing
 
 ## Framework
-pytest + pytest-asyncio per codice async.
+pytest + pytest-asyncio for async code.
 
-## Strategia
-- Ogni funzione pubblica: almeno 3 casi — happy path, edge case, error case.
-- `@pytest.mark.parametrize` per varianti dello stesso caso.
-- Fixtures in `conftest.py`, non nel file di test.
-- Mock solo per I/O esterni (HTTP, DB, filesystem). Mai mockare business logic.
-- `@pytest.mark.asyncio` per funzioni async.
+## Strategy
+- Every public function: at least 3 cases — happy path, edge case, error case.
+- `@pytest.mark.parametrize` for variants of the same case.
+- Fixtures in `conftest.py`, not in the test file.
+- Mock only external I/O (HTTP, DB, filesystem). Never mock business logic.
+- `@pytest.mark.asyncio` for async functions.
 
 ## Naming
-`test_<funzione>_<scenario>_<expected_outcome>`
-Esempio: `test_create_user_with_duplicate_email_raises_conflict`
+`test_<function>_<scenario>_<expected_outcome>`
+Example: `test_create_user_with_duplicate_email_raises_conflict`
 
 ## Coverage
-- Soglia minima: 80% su `src/`.
-- Non incrementare la coverage con test placeholder o assert vuoti.
-- Coverage < 80% su nuovo codice blocca il merge.
+- Minimum threshold: 80% on `src/`.
+- Do not inflate coverage with placeholder tests or empty asserts.
+- Coverage < 80% on new code blocks the merge.
 
-## Regola fondamentale
-Non committare con test rossi. L'hook `Stop` esegue pytest automaticamente
-e blocca se falliscono.
+## Fundamental Rule
+Do not commit with failing tests. The `Stop` hook runs pytest automatically
+and blocks if they fail.

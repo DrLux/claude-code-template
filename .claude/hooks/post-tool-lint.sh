@@ -1,6 +1,6 @@
 #!/bin/bash
 # .claude/hooks/post-tool-lint.sh
-# Esegue ruff e mypy su ogni file Python scritto da Claude.
+# Runs ruff and mypy on every Python file written by Claude.
 
 INPUT=$(cat)
 FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // .tool_input.path // ""')

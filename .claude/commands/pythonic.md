@@ -1,15 +1,15 @@
 ---
 name: pythonic
-description: Trasforma il codice indicato in Python moderno idiomatico
+description: Transforms the indicated code into modern idiomatic Python
 ---
 
-Applica queste trasformazioni nell'ordine:
+Apply these transformations in order:
 
-1. **Type hints completi**: usa union types con `|` (Python 3.10+), mai `Optional[X]`.
-2. **Strutture moderne**: `{}` vs `dict()`, f-string vs `.format()`.
-3. **Pattern matching**: sostituisci catene if/elif con `match/case` dove opportuno.
-4. **Comprehension**: loop imperativi → list/dict/set comprehension.
-5. **Context managers**: risorse (file, connessioni) sempre con `with`.
-6. **Async/await**: se il codice fa I/O, proponi la versione asincrona.
+1. **Complete type hints**: use union types with `|` (Python 3.10+), never `Optional[X]`.
+2. **Modern structures**: `{}` vs `dict()`, f-string vs `.format()`.
+3. **Pattern matching**: replace if/elif chains with `match/case` where appropriate.
+4. **Comprehensions**: imperative loops → list/dict/set comprehension.
+5. **Context managers**: resources (files, connections) always with `with`.
+6. **Async/await**: if the code does I/O, propose the async version.
 
-Mostra le differenze come diff unificato. Spiega ogni trasformazione non ovvia.
+Show differences as a unified diff. Explain each non-obvious transformation.

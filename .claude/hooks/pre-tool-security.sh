@@ -1,6 +1,6 @@
 #!/bin/bash
 # .claude/hooks/pre-tool-security.sh
-# Blocca comandi shell potenzialmente distruttivi.
+# Blocks potentially destructive shell commands.
 
 INPUT=$(cat)
 COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // ""')
@@ -22,7 +22,7 @@ BLOCKED_PATTERNS=(
 for pattern in "${BLOCKED_PATTERNS[@]}"; do
   if echo "$COMMAND" | grep -qF "$pattern"; then
     jq -n \
-      --arg reason "Comando bloccato dal security gate: pattern '$pattern' rilevato." \
+      --arg reason "Command blocked by security gate: pattern '$pattern' detected." \
       '{
         hookSpecificOutput: {
           hookEventName: "PreToolUse",

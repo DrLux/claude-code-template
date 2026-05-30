@@ -1,30 +1,30 @@
 # Code Style
 
 ## Python Version
-Python 3.12 con `uv`. Sintassi 3.10+: `match/case`, union types con `|`, `TypeAlias`, `ParamSpec`.
-Segui PEP 8 come standard base per naming, indentazione e organizzazione del codice.
+Python 3.12 with `uv`. Syntax 3.10+: `match/case`, union types with `|`, `TypeAlias`, `ParamSpec`.
+Follow PEP 8 as the base standard for naming, indentation, and code organization.
 
 ## Type Hints
-- PEP 484/585/604 rigorosi. Mai `Any` senza commento che giustifichi.
+- Strict PEP 484/585/604. Never `Any` without a justifying comment.
 - `Optional[X]` → `X | None`. `Union[A, B]` → `A | B`.
-- pydantic v2 per parsing e validazione dati — mai `dataclass` + validazione manuale.
+- pydantic v2 for data parsing and validation — never `dataclass` + manual validation.
 
 ## Async
-Tutto l'I/O è `async/await`. Eccezioni motivate esplicitamente.
+All I/O is `async/await`. Exceptions must be explicitly motivated.
 
-## Strutture
-- Preferire dichiarativo su imperativo.
-- Immutabilità dove possibile; state mutation esplicita e motivata.
-- Una classe solo se esiste stato interno persistente; altrimenti funzioni pure e moduli tipizzati.
+## Structures
+- Prefer declarative over imperative.
+- Immutability where possible; state mutation explicit and motivated.
+- A class only if persistent internal state exists; otherwise pure functions and typed modules.
 - `{}` vs `dict()`, f-string vs `.format()`.
-- Comprehension su loop imperativi.
-- Context managers per ogni risorsa (file, connessioni).
+- Comprehensions over imperative loops.
+- Context managers for every resource (files, connections).
 
 ## Naming
-- Snake case per funzioni e variabili, PascalCase per classi.
-- Nomi descrittivi: `user_id` non `uid`, `create_invoice` non `make_inv`.
-- Prefisso `_` per privati, `__` per name-mangled.
+- Snake case for functions and variables, PascalCase for classes.
+- Descriptive names: `user_id` not `uid`, `create_invoice` not `make_inv`.
+- `_` prefix for private, `__` for name-mangled.
 
-## Commenti
-Zero commenti per codice autoesplicativo. Commenta solo il WHY non ovvio:
-vincoli nascosti, invarianti sottili, workaround per bug specifici.
+## Comments
+Zero comments for self-explanatory code. Comment only the non-obvious WHY:
+hidden constraints, subtle invariants, workarounds for specific bugs.

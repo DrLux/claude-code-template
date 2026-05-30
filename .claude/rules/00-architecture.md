@@ -1,22 +1,22 @@
 # Planning Protocol
 
-## Fase di Intervista (obbligatoria prima del codice)
-Prima di scrivere una riga di codice, rispondi a queste domande:
+## Interview Phase (required before writing code)
+Before writing a single line of code, answer these questions:
 
-1. **Core Problem**: Qual è il problema principale? (non la soluzione — il problema)
-2. **Success Criteria**: Quali test devono passare? Quale comportamento osservabile?
-3. **Non-Goals**: Cosa questa implementazione NON deve toccare?
-4. **Impatto**: Quali file/moduli esistenti saranno toccati?
+1. **Core Problem**: What is the main problem? (not the solution — the problem)
+2. **Success Criteria**: Which tests must pass? What observable behavior?
+3. **Non-Goals**: What should this implementation NOT touch?
+4. **Impact**: Which existing files/modules will be affected?
 
 ## Verification Plan
-- Elenca i passi di implementazione in ordine.
-- Per ogni passo, indica come verificarlo.
-- Identifica le dipendenze tra i passi.
+- List implementation steps in order.
+- For each step, specify how to verify it.
+- Identify dependencies between steps.
 
-## Poi procedi
-Solo dopo conferma sull'alignment, inizia l'implementazione.
+## Then proceed
+Only after alignment is confirmed, begin implementation.
 
-## Regola del Doppio Contesto
-Per decisioni architetturali importanti: fai scrivere il piano in una sessione,
-poi apri una sessione fresca e chiedi una review da staff engineer senza contesto
-da implementazione. La sessione fresca non ha bias e cattura gap reali.
+## Dual Context Rule
+For important architectural decisions: write the plan in one session,
+then open a fresh session and ask for a staff engineer review without
+implementation context. The fresh session has no bias and catches real gaps.

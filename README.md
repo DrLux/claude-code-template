@@ -1,118 +1,118 @@
 # Claude Code Template
 
-Template per progetti Python senior con Claude Code configurato deterministicamente.
-Implementa il sistema a tre piani: advisory (CLAUDE.md + rules), deterministico (hooks),
-e on-demand (skills + commands + agents).
+Template for senior Python projects with Claude Code configured deterministically.
+Implements the three-layer system: advisory (CLAUDE.md + rules), deterministic (hooks),
+and on-demand (skills + commands + agents).
 
-## Creare un nuovo progetto da questo template
+## Create a new project from this template
 
-**Modo rapido (1 comando):**
+**Quick way (1 command):**
 ```bash
-gh repo create mio-nuovo-progetto --template DrLux/claude-code-template --private --clone
-cd mio-nuovo-progetto
+gh repo create my-new-project --template DrLux/claude-code-template --private --clone
+cd my-new-project
 ```
 
-**Da GitHub:** clicca "Use this template" su [github.com/DrLux/claude-code-template](https://github.com/DrLux/claude-code-template), poi clona il repo creato.
+**From GitHub:** click "Use this template" on [github.com/DrLux/claude-code-template](https://github.com/DrLux/claude-code-template), then clone the created repo.
 
-Entrambi i metodi creano un repo con **history pulita**, senza commit del template.
+Both methods create a repo with a **clean history**, without template commits.
 
-**Dopo la creazione:**
+**After creation:**
 ```bash
-# 1. Personalizza CLAUDE.md con stack e invarianti del tuo progetto
-# (sostituisci tutti i placeholder [NOME PROGETTO], [es. FastAPI], etc.)
+# 1. Customize CLAUDE.md with your project's stack and invariants
+# (replace all placeholders [PROJECT NAME], [e.g. FastAPI], etc.)
 
-# 2. Inizializza il contesto di progetto
-touch .claudememory       # verrà popolato da /memory-update
-touch CLAUDE.local.md     # note personali e PR feedback — mai committare
+# 2. Initialize the project context
+touch .claudememory       # will be populated by /memory-update
+touch CLAUDE.local.md     # personal notes and PR feedback — never commit
 
-# 3. Prima sessione: genera la mappa architetturale
+# 3. First session: generate the architectural map
 /architect
 ```
 
-**Una tantum per macchina** (developer identity globale):
+**Once per machine** (global developer identity):
 ```bash
 cp templates/global-memory.md ~/.claude/memory.md
-# Edita ~/.claude/memory.md per adattarlo al tuo profilo
+# Edit ~/.claude/memory.md to match your profile
 ```
 
-## Come usare questo template (setup manuale)
+## How to use this template (manual setup)
 
 ```bash
-# 1. Clona il template nella directory del nuovo progetto
-git clone https://github.com/DrLux/claude-code-template.git mio-progetto
-cd mio-progetto
+# 1. Clone the template into the new project directory
+git clone https://github.com/DrLux/claude-code-template.git my-project
+cd my-project
 
-# 2. Rimuovi la history del template e inizializza il tuo repo
+# 2. Remove the template history and initialize your repo
 rm -rf .git
 git init
 
-# 3. Personalizza CLAUDE.md con stack e invarianti del tuo progetto
-# (sostituisci tutti i placeholder [NOME PROGETTO], [es. FastAPI], etc.)
+# 3. Customize CLAUDE.md with your project's stack and invariants
+# (replace all placeholders [PROJECT NAME], [e.g. FastAPI], etc.)
 
-# 4. Copia il developer identity globale (una tantum per macchina)
+# 4. Copy the global developer identity (once per machine)
 cp templates/global-memory.md ~/.claude/memory.md
-# Edita ~/.claude/memory.md per adattarlo al tuo profilo
+# Edit ~/.claude/memory.md to match your profile
 
-# 5. Inizializza il contesto di progetto
-touch .claudememory       # verrà popolato da /memory-update
-touch CLAUDE.local.md     # note personali e PR feedback — mai committare
+# 5. Initialize the project context
+touch .claudememory       # will be populated by /memory-update
+touch CLAUDE.local.md     # personal notes and PR feedback — never commit
 
-# 6. Prima sessione: genera la mappa architetturale
+# 6. First session: generate the architectural map
 /architect
 ```
 
-## Struttura
+## Structure
 
 ```
 .
 ├── .claude/
-│   ├── settings.json           — configurazione hook
-│   ├── hooks/                  — script deterministici (linting, test, sicurezza)
-│   ├── skills/                 — comandi con side effect (commit)
-│   ├── commands/               — comandi on-demand (architect, pythonic, docstrings)
-│   ├── rules/                  — regole tematiche caricate automaticamente
-│   └── agents/                 — sottoprocessi specializzati (reviewer, test-writer)
+│   ├── settings.json           — hook configuration
+│   ├── hooks/                  — deterministic scripts (linting, tests, security)
+│   ├── skills/                 — commands with side effects (commit)
+│   ├── commands/               — on-demand commands (architect, pythonic, docstrings)
+│   ├── rules/                  — thematic rules loaded automatically
+│   └── agents/                 — specialized subprocesses (reviewer, test-writer)
 ├── templates/
-│   └── global-memory.md        — template per ~/.claude/memory.md (globale, non committare)
-├── CLAUDE.md                   — manifesto di progetto (committato, condiviso col team)
-├── CLAUDE.local.md             — note personali (gitignored)
-├── ARCHITECT.md                — mappa architetturale (generata da /architect)
-└── .claudememory               — stato dinamico del progetto (gitignored)
+│   └── global-memory.md        — template for ~/.claude/memory.md (global, do not commit)
+├── CLAUDE.md                   — project manifest (committed, shared with team)
+├── CLAUDE.local.md             — personal notes (gitignored)
+├── ARCHITECT.md                — architectural map (generated by /architect)
+└── .claudememory               — dynamic project state (gitignored)
 ```
 
-## Piano di controllo
+## Control plane
 
-| Piano | File | Comportamento |
+| Layer | Files | Behavior |
 |---|---|---|
-| Advisory | `CLAUDE.md`, `.claude/rules/` | Claude lo legge e interpreta |
-| Deterministico | `.claude/hooks/` | Eseguito automaticamente, non aggirabile |
-| On-demand | `.claude/skills/`, `.claude/commands/` | Attivato solo su invocazione esplicita |
+| Advisory | `CLAUDE.md`, `.claude/rules/` | Claude reads and interprets |
+| Deterministic | `.claude/hooks/` | Executed automatically, non-bypassable |
+| On-demand | `.claude/skills/`, `.claude/commands/` | Activated only on explicit invocation |
 
-## Comandi disponibili
+## Available commands
 
-| Comando | Funzione |
+| Command | Function |
 |---|---|
-| `/commit` | Commit assistito con conferma umana (non fa mai push) |
-| `/architect` | Riscansiona il repo e rigenera `ARCHITECT.md` |
-| `/pythonic` | Refactoring idiomatico Python 3.10+ |
-| `/docstrings` | Aggiunge Google-style docstrings alle API pubbliche |
-| `/memory-update` | Aggiorna `.claudememory` con lo stato della sessione |
+| `/commit` | Assisted commit with human confirmation (never pushes) |
+| `/architect` | Rescans the repo and regenerates `ARCHITECT.md` |
+| `/pythonic` | Idiomatic Python 3.10+ refactoring |
+| `/docstrings` | Adds Google-style docstrings to public APIs |
+| `/memory-update` | Updates `.claudememory` with the session state |
 
-## Hooks attivi
+## Active hooks
 
-| Hook | Trigger | Azione |
+| Hook | Trigger | Action |
 |---|---|---|
-| `SessionStart` | Avvio sessione | Carica `.claudememory` + git log |
-| `PreToolUse` | Ogni comando Bash | Blocca pattern distruttivi |
-| `PostToolUse` | Scrittura file `.py` | `ruff --fix` + `mypy` |
-| `PostToolBatch` | Fine batch di scritture | `mypy` cross-file |
-| `Stop` | Fine sessione | `pytest` + aggiornamento `ARCHITECT.md` |
+| `SessionStart` | Session start | Loads `.claudememory` + git log |
+| `PreToolUse` | Every Bash command | Blocks destructive patterns |
+| `PostToolUse` | `.py` file write | `ruff --fix` + `mypy` |
+| `PostToolBatch` | End of write batch | cross-file `mypy` |
+| `Stop` | Session end | `pytest` + `ARCHITECT.md` update |
 
-## Setup developer identity globale
+## Global developer identity setup
 
-Copia `templates/global-memory.md` in `~/.claude/memory.md` e personalizza:
-- **Seniority Contract**: adatta al tuo livello e dominio
-- **Technical Philosophy**: riflette le tue preferenze
-- **Toolchain Standard**: modifica se usi stack diversi
+Copy `templates/global-memory.md` to `~/.claude/memory.md` and customize:
+- **Seniority Contract**: adapt to your level and domain
+- **Technical Philosophy**: reflects your preferences
+- **Toolchain Standard**: modify if you use different stacks
 
-*Ultimo aggiornamento: 30/05/2026*
+*Last updated: 30/05/2026*

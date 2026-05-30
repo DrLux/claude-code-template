@@ -8,7 +8,7 @@
             "type": "command",
             "command": "bash .claude/hooks/session-start.sh",
             "timeout": 15,
-            "statusMessage": "Caricamento contesto di progetto..."
+            "statusMessage": "Loading project context..."
           }
         ]
       }
@@ -22,7 +22,7 @@
             "type": "command",
             "command": "bash .claude/hooks/pre-tool-security.sh",
             "timeout": 10,
-            "statusMessage": "Verifica sicurezza comando..."
+            "statusMessage": "Checking command security..."
           }
         ]
       }
@@ -36,7 +36,7 @@
             "type": "command",
             "command": "bash .claude/hooks/post-tool-lint.sh",
             "timeout": 30,
-            "statusMessage": "Linting e type checking..."
+            "statusMessage": "Linting and type checking..."
           }
         ]
       }
@@ -49,7 +49,7 @@
             "type": "command",
             "command": "bash .claude/hooks/post-batch-check.sh",
             "timeout": 20,
-            "statusMessage": "Verifica coerenza batch..."
+            "statusMessage": "Checking batch consistency..."
           }
         ]
       }
@@ -62,18 +62,18 @@
             "type": "command",
             "command": "bash .claude/hooks/stop-quality-gate.sh",
             "timeout": 120,
-            "statusMessage": "Esecuzione test suite..."
+            "statusMessage": "Running test suite..."
           },
           {
             "type": "agent",
-            "prompt": "Analizza `git diff HEAD --stat` e `git diff HEAD` per capire cosa è cambiato in questa sessione. Aggiorna CHIRURGICAMENTE solo le sezioni di ARCHITECT.md e README.md che riflettono questi cambiamenti. Non riscrivere l'intero file. Se nulla di strutturale è cambiato (solo bug fix o test), non toccare ARCHITECT.md. Aggiorna sempre la sezione 'Ultimo aggiornamento' con la data odierna.",
+            "prompt": "Analyze `git diff HEAD --stat` and `git diff HEAD` to understand what changed in this session. SURGICALLY update only the sections of ARCHITECT.md and README.md that reflect these changes. Do not rewrite the entire file. If nothing structural changed (only bug fixes or tests), do not touch ARCHITECT.md. Always update the 'Last updated' section with today's date.",
             "timeout": 60
           },
           {
             "type": "agent",
-            "prompt": "Aggiorna il file `.claudememory` nella root del progetto con lo stato della sessione corrente: aggiungi in '## Decisioni Tecniche Recenti' le scelte architetturali o tecniche prese oggi (con data YYYY-MM-DD), marca [x] i TODO risolti, aggiungi nuovi TODO identificati, aggiorna '## Feature in Sviluppo' con il branch e stato corrente. Non cancellare la storia: aggiungi in cima alle sezioni. Mantieni il file sotto 100 righe: archivia le decisioni più vecchie di 30 giorni in un blocco '## Archivio' in fondo. Se il file non esiste, crealo con la struttura standard.",
+            "prompt": "Update the `.claudememory` file in the project root with the current session state: add to '## Recent Technical Decisions' the architectural or technical choices made today (with date YYYY-MM-DD), mark [x] resolved TODOs, add newly identified TODOs, update '## Features in Development' with the current branch and status. Do not delete history: add at the top of sections. Keep the file under 100 lines: archive decisions older than 30 days in an '## Archive' block at the bottom. If the file does not exist, create it with the standard structure.",
             "timeout": 30,
-            "statusMessage": "Aggiornamento project memory..."
+            "statusMessage": "Updating project memory..."
           }
         ]
       }
