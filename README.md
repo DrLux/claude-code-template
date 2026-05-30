@@ -114,3 +114,5 @@ Copia `templates/global-memory.md` in `~/.claude/memory.md` e personalizza:
 - **Seniority Contract**: adatta al tuo livello e dominio
 - **Technical Philosophy**: riflette le tue preferenze
 - **Toolchain Standard**: modifica se usi stack diversi
+
+*Ultimo aggiornamento: 30/05/2026*
