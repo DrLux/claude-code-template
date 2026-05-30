@@ -4,7 +4,38 @@ Template per progetti Python senior con Claude Code configurato deterministicame
 Implementa il sistema a tre piani: advisory (CLAUDE.md + rules), deterministico (hooks),
 e on-demand (skills + commands + agents).
 
-## Come usare questo template
+## Creare un nuovo progetto da questo template
+
+**Modo rapido (1 comando):**
+```bash
+gh repo create mio-nuovo-progetto --template DrLux/claude-code-template --private --clone
+cd mio-nuovo-progetto
+```
+
+**Da GitHub:** clicca "Use this template" su [github.com/DrLux/claude-code-template](https://github.com/DrLux/claude-code-template), poi clona il repo creato.
+
+Entrambi i metodi creano un repo con **history pulita**, senza commit del template.
+
+**Dopo la creazione:**
+```bash
+# 1. Personalizza CLAUDE.md con stack e invarianti del tuo progetto
+# (sostituisci tutti i placeholder [NOME PROGETTO], [es. FastAPI], etc.)
+
+# 2. Inizializza il contesto di progetto
+touch .claudememory       # verrà popolato da /memory-update
+touch CLAUDE.local.md     # note personali e PR feedback — mai committare
+
+# 3. Prima sessione: genera la mappa architetturale
+/architect
+```
+
+**Una tantum per macchina** (developer identity globale):
+```bash
+cp templates/global-memory.md ~/.claude/memory.md
+# Edita ~/.claude/memory.md per adattarlo al tuo profilo
+```
+
+## Come usare questo template (setup manuale)
 
 ```bash
 # 1. Clona il template nella directory del nuovo progetto
