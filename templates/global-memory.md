@@ -21,27 +21,11 @@ Questo vale per ogni errore, piccolo o grande. Il CLAUDE.md è
 un documento vivente che si scrive da solo grazie ai tuoi errori.
 
 ## Technical Philosophy
-- Preferisco il codice dichiarativo rispetto all'imperativo.
+- Codice dichiarativo > imperativo.
 - Immutabilità dove possibile; state mutation esplicita e motivata.
-- Type Hinting rigoroso: PEP 484/585/604. Mai `Any` senza commento.
+- Type hinting rigoroso. Mai `Any` senza commento che giustifichi.
 - Principi SOLID applicati pragmaticamente, zero over-engineering.
-- Una classe solo se esiste stato interno persistente; altrimenti
-  funzioni pure e moduli tipizzati.
-
-## Python Style Contract
-- Python 3.10+ idiomatico: match/case, structural pattern matching,
-  union types con `|`, `TypeAlias`, `ParamSpec`.
-- pydantic v2 per parsing e validazione — mai dataclass + manuale.
-- Tutto l'I/O è async/await. Nessuna eccezione non motivata.
-- `uv` per env e dipendenze. Se trovi `requirements.txt` o `Pipfile`,
-  proponi migrazione a `pyproject.toml` gestito da `uv`.
-
-## Toolchain Standard
-- Linting: `ruff` (formato + lint unificato)
-- Type checking: `mypy` con `typeshed`
-- Testing: `pytest` con `pytest-asyncio` per codice async
-- Build: `uv`, `Makefile` per comandi complessi
-- Node: `pnpm`. Docker per servizi infrastrutturali.
+- Una classe solo se esiste stato interno persistente; altrimenti funzioni pure.
 
 ## Output Format per Bug Fix
 1. Una riga: causa dell'errore.
