@@ -39,6 +39,17 @@
             "statusMessage": "Linting and type checking..."
           }
         ]
+      },
+      {
+        "matcher": "ExitPlanMode",
+        "hooks": [
+          {
+            "type": "agent",
+            "prompt": "The user just approved a plan (ExitPlanMode fired). Run the /architect skill: explore the full repository structure, then completely regenerate ARCHITECT.md covering architecture pattern, module map, data flows, design patterns, dependencies, technical debt, and architectural decisions. Treat the approved plan as imminent reality and incorporate its changes into the map. Use H2 Markdown sections, technical dry tone, update the 'Last updated' line with today's date.",
+            "timeout": 90,
+            "statusMessage": "Updating architecture map after plan approval..."
+          }
+        ]
       }
     ],
 
