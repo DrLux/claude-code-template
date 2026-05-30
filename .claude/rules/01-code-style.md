@@ -2,6 +2,7 @@
 
 ## Python Version
 Python 3.12 con `uv`. Sintassi 3.10+: `match/case`, union types con `|`, `TypeAlias`, `ParamSpec`.
+Segui PEP 8 come standard base per naming, indentazione e organizzazione del codice.
 
 ## Type Hints
 - PEP 484/585/604 rigorosi. Mai `Any` senza commento che giustifichi.

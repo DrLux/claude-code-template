@@ -4,6 +4,8 @@
 `uv` per environment e dipendenze. Tutti i comandi Python tramite `uv run`.
 Se trovi `requirements.txt` o `Pipfile`, proponi migrazione a `pyproject.toml` con `uv`.
 
+Prima di dichiarare il codice pronto, esegui `uv run ruff check` e verifica che non ci siano errori.
+
 ## Toolchain standard
 - Linting: `ruff` (format + lint unificato)
 - Type checking: `mypy` con `typeshed`, `strict = true`
