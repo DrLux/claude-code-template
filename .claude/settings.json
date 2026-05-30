@@ -1,0 +1,76 @@
+{
+  "hooks": {
+
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/session-start.sh",
+            "timeout": 15,
+            "statusMessage": "Caricamento contesto di progetto..."
+          }
+        ]
+      }
+    ],
+
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/pre-tool-security.sh",
+            "timeout": 10,
+            "statusMessage": "Verifica sicurezza comando..."
+          }
+        ]
+      }
+    ],
+
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/post-tool-lint.sh",
+            "timeout": 30,
+            "statusMessage": "Linting e type checking..."
+          }
+        ]
+      }
+    ],
+
+    "PostToolBatch": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/post-batch-check.sh",
+            "timeout": 20,
+            "statusMessage": "Verifica coerenza batch..."
+          }
+        ]
+      }
+    ],
+
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/stop-quality-gate.sh",
+            "timeout": 120,
+            "statusMessage": "Esecuzione test suite..."
+          },
+          {
+            "type": "agent",
+            "prompt": "Analizza `git diff HEAD --stat` e `git diff HEAD` per capire cosa è cambiato in questa sessione. Aggiorna CHIRURGICAMENTE solo le sezioni di ARCHITECT.md e README.md che riflettono questi cambiamenti. Non riscrivere l'intero file. Se nulla di strutturale è cambiato (solo bug fix o test), non toccare ARCHITECT.md. Aggiorna sempre la sezione 'Ultimo aggiornamento' con la data odierna.",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}
