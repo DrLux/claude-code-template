@@ -90,10 +90,10 @@ touch CLAUDE.local.md     # personal notes and PR feedback — never commit
 
 ## Available commands
 
-| Command | Function |
+| Skill/Command | Function |
 |---|---|
 | `/commit` | Assisted commit with human confirmation (never pushes) |
-| `/architect` | Rescans the repo and regenerates `ARCHITECT.md` |
+| `/architect` | Rescans the repo and regenerates `ARCHITECT.md` (auto-triggers on ExitPlanMode) |
 | `/pythonic` | Idiomatic Python 3.10+ refactoring |
 | `/docstrings` | Adds Google-style docstrings to public APIs |
 | `/memory-update` | Updates `.claudememory` with the session state |
@@ -106,6 +106,7 @@ touch CLAUDE.local.md     # personal notes and PR feedback — never commit
 | `PreToolUse` | Every Bash command | Blocks destructive patterns |
 | `PostToolUse` | `.py` file write | `ruff --fix` + `mypy` |
 | `PostToolBatch` | End of write batch | cross-file `mypy` |
+| `ExitPlanMode` | Plan approval | Auto-runs `/architect` to update architecture map |
 | `Stop` | Session end | `pytest` + `ARCHITECT.md` update |
 
 ## Global developer identity setup
@@ -115,4 +116,4 @@ Copy `templates/global-memory.md` to `~/.claude/memory.md` and customize:
 - **Technical Philosophy**: reflects your preferences
 - **Toolchain Standard**: modify if you use different stacks
 
-*Last updated: 30/05/2026*
+*Last updated: 01/06/2026*
